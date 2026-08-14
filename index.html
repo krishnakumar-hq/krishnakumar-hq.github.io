@@ -3,26 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishna Kumar | Portfolio</title>
+    <title>Krishna Kumar | Computer Science Student & Technology Learner</title>
     
-    <!-- Browser Tab Favicon Logo -->
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Personal portfolio of Krishna Kumar — Computer Science student exploring programming, web development, and AI technology.">
+    <meta name="author" content="Krishna Kumar">
+    
+    <!-- Open Graph (Social Sharing) -->
+    <meta property="og:title" content="Krishna Kumar | Portfolio">
+    <meta property="og:description" content="Computer Science student exploring programming, web development, and AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krishnakumar-hq.github.io/">
+    
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232563eb'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='55' fill='white'>K</text></svg>">
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #3b82f6;
-            --primary-glow: rgba(59, 130, 246, 0.35);
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-glow: rgba(37, 99, 235, 0.25);
             --accent: #38bdf8;
             --accent-purple: #a855f7;
-            --bg: #080c14;
-            --card-bg: rgba(18, 24, 38, 0.75);
+            --bg: #090d16;
+            --card-bg: rgba(17, 24, 39, 0.75);
             --card-border: rgba(255, 255, 255, 0.08);
-            --card-hover-border: rgba(56, 189, 248, 0.4);
+            --card-hover-border: rgba(56, 189, 248, 0.35);
             --text: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -31,6 +42,15 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         body {
@@ -45,7 +65,7 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Glowing Background Effect */
+        /* Subtle Ambient Lighting */
         .bg-glow {
             position: fixed;
             top: 0;
@@ -61,50 +81,38 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
-            opacity: 0.22;
-            animation: float 22s infinite alternate ease-in-out;
+            opacity: 0.18;
+            animation: float 24s infinite alternate ease-in-out;
         }
 
         .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: #1d4ed8;
-            top: -120px;
+            width: 450px;
+            height: 450px;
+            background: #1e40af;
+            top: -100px;
             left: -100px;
         }
 
         .orb-2 {
-            width: 450px;
-            height: 450px;
-            background: #7e22ce;
+            width: 400px;
+            height: 400px;
+            background: #6b21a8;
             bottom: 5%;
             right: -80px;
-            animation-duration: 26s;
+            animation-duration: 28s;
             animation-delay: -5s;
         }
 
-        .orb-3 {
-            width: 350px;
-            height: 350px;
-            background: #0284c7;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-duration: 20s;
-            animation-delay: -10s;
-        }
-
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(45px, 30px) scale(1.06); }
-            100% { transform: translate(-30px, 45px) scale(0.96); }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 40px); }
         }
 
-        /* Navigation Bar */
+        /* Sticky Navigation */
         nav {
             position: sticky;
             top: 0;
-            background: rgba(8, 12, 20, 0.85);
+            background: rgba(9, 13, 22, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--card-border);
@@ -117,25 +125,23 @@
 
         .logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text);
             text-decoration: none;
             cursor: pointer;
             display: flex;
             align-items: center;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
         }
 
         .logo span {
-            background: linear-gradient(135deg, var(--accent), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent);
         }
 
         .nav-links {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
             list-style: none;
         }
 
@@ -145,23 +151,40 @@
             border: 1px solid transparent;
             font-family: inherit;
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.5rem 1.1rem;
+            font-size: 0.9rem;
+            padding: 0.45rem 1rem;
             border-radius: 8px;
-            transition: all 0.25s;
+            transition: all 0.2s;
             cursor: pointer;
         }
 
         .nav-tab:hover {
             color: var(--text);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .nav-tab.active {
             color: #ffffff;
-            background: rgba(56, 189, 248, 0.15);
-            border-color: rgba(56, 189, 248, 0.35);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+            background: rgba(56, 189, 248, 0.12);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        /* Mobile Nav Adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.9rem 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+            .nav-tab {
+                padding: 0.35rem 0.65rem;
+                font-size: 0.82rem;
+            }
         }
 
         /* Main Container */
@@ -739,7 +762,24 @@
         }
     </style>
 </head>
-<body>
+<body><!-- Ambient Glow Background -->
+    <div class="bg-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo" onclick="showTab('home')">Krishna<span>.dev</span></div>
+        <div class="nav-links">
+            <button class="nav-tab active" data-tab="home" onclick="showTab('home')">Home</button>
+            <button class="nav-tab" data-tab="about" onclick="showTab('about')">About</button>
+            <button class="nav-tab" data-tab="education" onclick="showTab('education')">Education</button>
+            <button class="nav-tab" data-tab="skills" onclick="showTab('skills')">Skills</button>
+            <button class="nav-tab" data-tab="projects" onclick="showTab('projects')">Projects</button>
+            <button class="nav-tab" data-tab="contact" onclick="showTab('contact')">Contact</button>
+        </div>
+    </nav>
 
     <!-- Ambient Glowing Background -->
     <div class="bg-glow">
