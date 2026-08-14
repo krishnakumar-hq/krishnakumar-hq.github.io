@@ -532,7 +532,9 @@
             .container {
                 padding-top: 1.5rem;
             }
-        }/* AI Floating Chat Trigger Button */
+        }
+
+        /* AI Floating Chat Trigger Button */
         .ai-chat-btn {
             position: fixed;
             bottom: 24px;
@@ -798,7 +800,6 @@
             <div class="card">
                 <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem;">
                    Hi, I’m Krishna Kumar, a beginner in the world of technology and programming. I’m currently learning computer science and exploring areas like web development, AI, and programming. I enjoy learning new things, building small projects, and improving my skills step by step. This website is a place to share my learning journey, projects, and progress.
-
                 </p>
                 <div class="btn-group" style="justify-content: flex-start;">
                     <button onclick="showTab('skills')" class="btn btn-primary">View My Skills →</button>
@@ -915,7 +916,8 @@
             </div>
         </div>
     </div>
-<!-- AI Floating Chat Trigger Button -->
+
+    <!-- AI Floating Chat Trigger Button -->
     <button class="ai-chat-btn" onclick="toggleChat()">
         <span class="chat-pulse"></span>
         <span>✨ Chat with My AI</span>
@@ -951,6 +953,7 @@
             <button class="chat-send-btn" id="chatSendBtn" onclick="sendMessage()">➤</button>
         </div>
     </div>
+
     <!-- Footer -->
     <footer>
         <p>© 2026 Krishna Kumar</p>
@@ -960,28 +963,20 @@
     <script>
         // Section / Tab Switcher
         function showTab(tabId) {
-            // Hide all views
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-
-            // Deactivate all nav buttons
             document.querySelectorAll('.nav-tab').forEach(btn => {
                 btn.classList.remove('active');
             });
-
-            // Activate chosen view
             const selectedTab = document.getElementById(tabId);
             if (selectedTab) {
                 selectedTab.classList.add('active');
             }
-
-            // Highlight chosen nav button
             const activeBtn = document.querySelector(`.nav-tab[data-tab="${tabId}"]`);
             if (activeBtn) {
                 activeBtn.classList.add('active');
             }
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1023,7 +1018,9 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             if (words.length) setTimeout(type, 600);
-        });// ========================================================
+        });
+
+        // ========================================================
         // AI ASSISTANT CHATBOT LOGIC
         // ========================================================
         const WORKER_ENDPOINT = "https://krishna-portfolio-ai.thisiskrishnashah.workers.dev";
@@ -1083,18 +1080,19 @@
                     })
                 });
 
-                const data = await response.json();
+                const data = await response.json().catch(() => null);
                 
                 // Remove typing indicator
                 const currentIndicator = document.getElementById("typingIndicator");
                 if (currentIndicator) currentIndicator.remove();
 
-                if (response.ok && data.reply) {
+                if (response.ok && data && data.reply) {
                     appendMessage(data.reply, "bot");
                     chatHistory.push({ role: "user", text: message });
                     chatHistory.push({ role: "model", text: data.reply });
                 } else {
-                    appendMessage("I couldn't process that right now. Please reach out to Krishna at thisiskrishnashah@gmail.com!", "bot");
+                    const debugMsg = data ? (data.error + " — " + (data.details || "")) : ("HTTP Status: " + response.status);
+                    appendMessage("⚠️ Debug Info: " + debugMsg, "bot");
                 }
             } catch (err) {
                 const currentIndicator = document.getElementById("typingIndicator");
