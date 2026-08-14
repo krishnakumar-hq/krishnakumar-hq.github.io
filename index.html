@@ -532,6 +532,191 @@
             .container {
                 padding-top: 1.5rem;
             }
+        }/* AI Floating Chat Trigger Button */
+        .ai-chat-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #2563eb, #9333ea);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.85rem 1.4rem;
+            border-radius: 9999px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            z-index: 999;
+            transition: all 0.3s;
+        }
+
+        .ai-chat-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+        }
+
+        .chat-pulse {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulse 1.8s infinite;
+        }
+
+        /* AI Chat Window Modal */
+        .ai-chat-modal {
+            position: fixed;
+            bottom: 88px;
+            right: 24px;
+            width: 380px;
+            max-width: calc(100vw - 32px);
+            height: 520px;
+            max-height: calc(100vh - 120px);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .ai-chat-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .chat-header {
+            background: rgba(30, 41, 59, 0.85);
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 0.75rem 1rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .chat-msg.bot {
+            align-self: flex-start;
+            background: rgba(30, 41, 59, 0.9);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-msg.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #ffffff;
+            border-bottom-right-radius: 4px;
+        }
+
+        .prompt-chips {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 0.6rem;
+        }
+
+        .chip-btn {
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .chip-btn:hover {
+            background: rgba(56, 189, 248, 0.18);
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+            padding: 0.6rem 0.9rem;
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .chat-input-box {
+            padding: 0.9rem 1.1rem;
+            background: rgba(30, 41, 59, 0.9);
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(11, 15, 25, 0.7);
+            border: 1px solid var(--card-border);
+            padding: 0.65rem 0.95rem;
+            border-radius: 10px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent);
+        }
+
+        .chat-send-btn {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -730,7 +915,42 @@
             </div>
         </div>
     </div>
+<!-- AI Floating Chat Trigger Button -->
+    <button class="ai-chat-btn" onclick="toggleChat()">
+        <span class="chat-pulse"></span>
+        <span>✨ Chat with My AI</span>
+    </button>
 
+    <!-- AI Chat Window Modal -->
+    <div class="ai-chat-modal" id="aiChatModal">
+        <div class="chat-header">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.3rem;">🤖</span>
+                <div>
+                    <h4 style="margin: 0; font-size: 0.95rem; color: #ffffff;">Krishna's AI Assistant</h4>
+                    <p style="margin: 0; font-size: 0.75rem; color: #4ade80;">🟢 Online</p>
+                </div>
+            </div>
+            <button onclick="toggleChat()" style="background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer;">✕</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">
+                Hi there! 👋 I'm Krishna's AI assistant. Ask me anything about his background, education, projects, skills, or contact info!
+                <div class="prompt-chips">
+                    <button class="chip-btn" onclick="sendPrompt('Who is Krishna?')">💡 Who is Krishna?</button>
+                    <button class="chip-btn" onclick="sendPrompt('What are his skills?')">🛠️ What are his skills?</button>
+                    <button class="chip-btn" onclick="sendPrompt('What projects has he built?')">🚀 What projects has he built?</button>
+                    <button class="chip-btn" onclick="sendPrompt('How can I contact him?')">📬 How can I contact him?</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-box">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask a question..." onkeydown="handleInputKey(event)">
+            <button class="chat-send-btn" id="chatSendBtn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
     <!-- Footer -->
     <footer>
         <p>© 2026 Krishna Kumar</p>
@@ -803,7 +1023,96 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             if (words.length) setTimeout(type, 600);
-        });
+        });// ========================================================
+        // AI ASSISTANT CHATBOT LOGIC
+        // ========================================================
+        const WORKER_ENDPOINT = "https://krishna-portfolio-ai.thisiskrishnashah.workers.dev";
+        const chatModal = document.getElementById("aiChatModal");
+        const chatMessages = document.getElementById("chatMessages");
+        const chatInput = document.getElementById("chatInput");
+        const chatSendBtn = document.getElementById("chatSendBtn");
+
+        let chatHistory = [];
+        let isWaitingForResponse = false;
+
+        function toggleChat() {
+            chatModal.classList.toggle("open");
+            if (chatModal.classList.contains("open")) {
+                setTimeout(() => chatInput.focus(), 300);
+            }
+        }
+
+        function handleInputKey(e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function sendPrompt(text) {
+            chatInput.value = text;
+            sendMessage();
+        }
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message || isWaitingForResponse) return;
+
+            // 1. Show user message bubble
+            appendMessage(message, "user");
+            chatInput.value = "";
+            isWaitingForResponse = true;
+            chatSendBtn.disabled = true;
+
+            // 2. Show typing indicator dots
+            const typingIndicator = document.createElement("div");
+            typingIndicator.className = "typing-dots";
+            typingIndicator.id = "typingIndicator";
+            typingIndicator.innerHTML = "<span></span><span></span><span></span>";
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                // 3. Send message to Cloudflare Worker backend
+                const response = await fetch(WORKER_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: message,
+                        history: chatHistory
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Remove typing indicator
+                const currentIndicator = document.getElementById("typingIndicator");
+                if (currentIndicator) currentIndicator.remove();
+
+                if (response.ok && data.reply) {
+                    appendMessage(data.reply, "bot");
+                    chatHistory.push({ role: "user", text: message });
+                    chatHistory.push({ role: "model", text: data.reply });
+                } else {
+                    appendMessage("I couldn't process that right now. Please reach out to Krishna at thisiskrishnashah@gmail.com!", "bot");
+                }
+            } catch (err) {
+                const currentIndicator = document.getElementById("typingIndicator");
+                if (currentIndicator) currentIndicator.remove();
+                appendMessage("Connection error. Please try again or email Krishna directly.", "bot");
+            } finally {
+                isWaitingForResponse = false;
+                chatSendBtn.disabled = false;
+            }
+        }
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement("div");
+            msgDiv.className = `chat-msg ${sender}`;
+            msgDiv.innerText = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
     </script>
 </body>
 </html>
