@@ -749,8 +749,11 @@
     </div>
 
     <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav>
-        <div class="logo" onclick="showTab('home')">Krishna<span>&nbsp;Kumar</span></div>
+        <div class="logo" onclick="showTab('home')">
+            <span>Krishna <span>Kumar</span></span>
+        </div>
         <div class="nav-links">
             <button class="nav-tab active" data-tab="home" onclick="showTab('home')">Home</button>
             <button class="nav-tab" data-tab="about" onclick="showTab('about')">About</button>
@@ -762,21 +765,28 @@
     </nav>
 
     <div class="container">
-        <!-- 1. HOME TAB (Hero + Intro Card) -->
+        <!-- 1. HOME TAB -->
         <div id="home" class="tab-content active">
-            <!-- Hero -->
+            <!-- Hero Section -->
             <section class="hero">
                 <div class="status-pill">
                     <span class="status-dot"></span>
-                    <span>Available for Tech Projects & Innovation</span>
+                    <span>Building • Learning • Experimenting</span>
                 </div>
                 <h1>Hi, I'm <span class="gradient-text">Krishna Kumar</span></h1>
+                <p style="font-size: 1.15rem; color: var(--accent); font-weight: 600; margin-bottom: 0.8rem;">
+                    Computer Science Student • Web Development & AI Learner
+                </p>
                 <div class="typing-container">
-                    I am a <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                    <span class="typed-text"></span><span class="cursor">&nbsp;</span>
                 </div>
+                <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+                    Building my foundation in programming, modern web technologies, and practical AI workflows through continuous hands-on projects.
+                </p>
                 <div class="btn-group">
-                    <button onclick="toggleChat()" class="btn btn-primary" style="background: linear-gradient(135deg, #9333ea, #3b82f6);">✨ Chat with My AI</button>
-                    <button onclick="showTab('contact')" class="btn btn-outline">👋 Let's Connect</button>
+                    <button onclick="showTab('projects')" class="btn btn-primary">📁 View My Projects</button>
+                    <button onclick="showTab('about')" class="btn btn-outline">👤 About Me</button>
+                    <button onclick="toggleChat()" class="btn btn-outline" style="border-color: rgba(168, 85, 247, 0.4); color: #d8b4fe;">✨ Ask Krishna's AI</button>
                 </div>
             </section>
 
@@ -1028,10 +1038,12 @@
         }
 
         // Typing Effect on Home view
+// Rotating Honest Roles (Fixed & Clean)
         const words = [
-            "Student & Tech Enthusiast",
-            "Web & Digital Solutions Builder",
-            "Creative Problem Solver"
+            "Computer Science Student",
+            "Web Developer in Progress",
+            "Technology & AI Explorer",
+            "Curious Problem Solver"
         ];
         let wordIndex = 0;
         let charIndex = 0;
