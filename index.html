@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishna Kumar | Portfolio</title>
+    
     <!-- Browser Tab Favicon Logo -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232563eb'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='55' fill='white'>K</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232563eb'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='55' fill='white'>K</text></svg>">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +16,11 @@
     <style>
         :root {
             --primary: #3b82f6;
-            --primary-glow: rgba(59, 130, 246, 0.4);
+            --primary-glow: rgba(59, 130, 246, 0.35);
             --accent: #38bdf8;
             --accent-purple: #a855f7;
-            --bg: #0b0f19;
-            --card-bg: rgba(22, 30, 49, 0.75);
+            --bg: #080c14;
+            --card-bg: rgba(18, 24, 38, 0.75);
             --card-border: rgba(255, 255, 255, 0.08);
             --card-hover-border: rgba(56, 189, 248, 0.4);
             --text: #f8fafc;
@@ -58,15 +60,15 @@
         .glow-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(110px);
-            opacity: 0.25;
+            filter: blur(120px);
+            opacity: 0.22;
             animation: float 22s infinite alternate ease-in-out;
         }
 
         .orb-1 {
             width: 500px;
             height: 500px;
-            background: #2563eb;
+            background: #1d4ed8;
             top: -120px;
             left: -100px;
         }
@@ -74,7 +76,7 @@
         .orb-2 {
             width: 450px;
             height: 450px;
-            background: #9333ea;
+            background: #7e22ce;
             bottom: 5%;
             right: -80px;
             animation-duration: 26s;
@@ -84,7 +86,7 @@
         .orb-3 {
             width: 350px;
             height: 350px;
-            background: #06b6d4;
+            background: #0284c7;
             top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -94,15 +96,15 @@
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 35px) scale(1.08); }
-            100% { transform: translate(-35px, 50px) scale(0.95); }
+            50% { transform: translate(45px, 30px) scale(1.06); }
+            100% { transform: translate(-30px, 45px) scale(0.96); }
         }
 
         /* Navigation Bar */
         nav {
             position: sticky;
             top: 0;
-            background: rgba(11, 15, 25, 0.85);
+            background: rgba(8, 12, 20, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--card-border);
@@ -122,7 +124,7 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -131,14 +133,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-        }
         .nav-links {
             display: flex;
             gap: 0.5rem;
@@ -172,9 +166,9 @@
 
         /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 950px;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem 5rem;
+            padding: 2.5rem 1.5rem 6rem;
             position: relative;
             z-index: 1;
             flex: 1;
@@ -193,7 +187,7 @@
         @keyframes viewFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px) scale(0.98);
+                transform: translateY(18px) scale(0.98);
             }
             to {
                 opacity: 1;
@@ -202,12 +196,12 @@
         }
 
         .section-header {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.2rem;
         }
 
         .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.3rem;
+            font-size: 2.1rem;
             font-weight: 700;
             color: var(--text);
             position: relative;
@@ -227,28 +221,32 @@
 
         .section-subtitle {
             color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 0.8rem;
+            font-size: 0.98rem;
+            margin-top: 0.7rem;
         }
 
-        /* Hero View */
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 3rem 0 3.5rem;
+            padding: 3.5rem 0 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .status-pill {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
             color: #4ade80;
             padding: 0.4rem 1.1rem;
             border-radius: 9999px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .status-dot {
@@ -266,11 +264,11 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 0.9rem;
+            letter-spacing: -0.5px;
         }
 
         .gradient-text {
@@ -280,10 +278,10 @@
         }
 
         .typing-container {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 2.2rem;
-            min-height: 2rem;
+            margin-bottom: 2rem;
+            min-height: 1.8rem;
         }
 
         .typed-text {
@@ -317,7 +315,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            padding: 0.85rem 1.85rem;
+            padding: 0.8rem 1.6rem;
             border-radius: 10px;
             font-weight: 600;
             text-decoration: none;
@@ -332,12 +330,12 @@
             background: linear-gradient(135deg, #2563eb, #3b82f6);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 4px 20px var(--primary-glow);
+            box-shadow: 0 4px 18px var(--primary-glow);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
         }
 
         .btn-outline {
@@ -349,7 +347,7 @@
         .btn-outline:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             color: #ffffff;
         }
 
@@ -365,20 +363,20 @@
 
         .card:hover {
             border-color: var(--card-hover-border);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(56, 189, 248, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(56, 189, 248, 0.12);
         }
 
         .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
         }
 
         /* Highlights & Skills */
@@ -390,9 +388,9 @@
         }
 
         .highlight-tag {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, 0.08);
             color: var(--accent);
-            border: 1px solid rgba(56, 189, 248, 0.25);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             padding: 0.5rem 1rem;
             border-radius: 9999px;
             font-size: 0.9rem;
@@ -426,7 +424,7 @@
 
         /* Project Cards */
         .project-card h3 {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             margin-bottom: 0.6rem;
         }
 
@@ -496,12 +494,6 @@
             box-shadow: 0 8px 20px rgba(255, 0, 80, 0.3), 0 0 15px rgba(0, 242, 234, 0.3);
         }
 
-        .btn-github:hover {
-            background: #24292e;
-            border-color: #8b5cf6;
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
-        }
-
         .btn-email:hover {
             background: linear-gradient(135deg, #2563eb, #38bdf8);
             border-color: transparent;
@@ -517,33 +509,6 @@
             border-top: 1px solid var(--card-border);
             position: relative;
             z-index: 1;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 1rem;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.3rem;
-            }
-            .nav-tab {
-                padding: 0.4rem 0.75rem;
-                font-size: 0.85rem;
-            }
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .typing-container {
-                font-size: 1.1rem;
-            }
-            .container {
-                padding-top: 1.5rem;
-            }
         }
 
         /* AI Floating Chat Trigger Button */
@@ -631,17 +596,18 @@
 
         .chat-msg {
             max-width: 85%;
-            padding: 0.75rem 1rem;
+            padding: 0.85rem 1.1rem;
             border-radius: 14px;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            word-break: break-word;
         }
 
         .chat-msg.bot {
             align-self: flex-start;
-            background: rgba(30, 41, 59, 0.9);
+            background: rgba(30, 41, 59, 0.95);
             color: var(--text);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             border-bottom-left-radius: 4px;
         }
 
@@ -732,6 +698,45 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.3rem;
+            }
+            .nav-tab {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.85rem;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .typing-container {
+                font-size: 1.1rem;
+            }
+            .container {
+                padding-top: 1.5rem;
+            }
+            .ai-chat-btn {
+                bottom: 16px;
+                right: 16px;
+                padding: 0.75rem 1.1rem;
+                font-size: 0.85rem;
+            }
+            .ai-chat-modal {
+                bottom: 75px;
+                right: 16px;
+                width: calc(100vw - 32px);
+                height: 70vh;
+            }
+        }
     </style>
 </head>
 <body>
@@ -744,12 +749,8 @@
     </div>
 
     <!-- Navigation Bar -->
-   <!-- Navigation Bar -->
     <nav>
-        <div class="logo" onclick="showTab('home')">
-            <img src="profile.jpg" alt="Krishna Kumar" class="nav-avatar">
-            <span>Krishna <span>Kumar</span></span>
-        </div>
+        <div class="logo" onclick="showTab('home')">Krishna<span>&nbsp;Kumar</span></div>
         <div class="nav-links">
             <button class="nav-tab active" data-tab="home" onclick="showTab('home')">Home</button>
             <button class="nav-tab" data-tab="about" onclick="showTab('about')">About</button>
@@ -768,12 +769,13 @@
                 <div class="status-pill">
                     <span class="status-dot"></span>
                     <span>Available for Tech Projects & Innovation</span>
+                </div>
                 <h1>Hi, I'm <span class="gradient-text">Krishna Kumar</span></h1>
                 <div class="typing-container">
                     I am a <span class="typed-text"></span><span class="cursor">&nbsp;</span>
                 </div>
                 <div class="btn-group">
-                    <button onclick="showTab('projects')" class="btn btn-primary">🚀 Explore Projects</button>
+                    <button onclick="toggleChat()" class="btn btn-primary" style="background: linear-gradient(135deg, #9333ea, #3b82f6);">✨ Chat with My AI</button>
                     <button onclick="showTab('contact')" class="btn btn-outline">👋 Let's Connect</button>
                 </div>
             </section>
@@ -1119,7 +1121,8 @@
             }
         }
 
-       function formatMarkdown(text) {
+        // Clean Markdown Formatter for AI responses
+        function formatMarkdown(text) {
             if (!text) return "";
             return text
                 .replace(/&/g, "&amp;")
