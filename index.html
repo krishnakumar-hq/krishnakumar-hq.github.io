@@ -162,7 +162,7 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 3rem 1.5rem 5rem;
+            padding: 2.5rem 1.5rem 5rem;
             position: relative;
             z-index: 1;
             flex: 1;
@@ -219,10 +219,10 @@
             margin-top: 0.8rem;
         }
 
-        /* Hero / Home View */
+        /* Hero View */
         .hero {
             text-align: center;
-            padding: 4.5rem 0 2rem;
+            padding: 3rem 0 3.5rem;
         }
 
         .status-pill {
@@ -236,7 +236,7 @@
             border-radius: 9999px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
         }
 
         .status-dot {
@@ -270,7 +270,7 @@
         .typing-container {
             font-size: 1.35rem;
             color: var(--text-muted);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.2rem;
             min-height: 2rem;
         }
 
@@ -369,7 +369,24 @@
             gap: 1.75rem;
         }
 
-        /* Skills */
+        /* Highlights & Skills */
+        .highlight-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .highlight-tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
@@ -513,7 +530,7 @@
                 font-size: 1.1rem;
             }
             .container {
-                padding-top: 2rem;
+                padding-top: 1.5rem;
             }
         }
     </style>
@@ -541,8 +558,9 @@
     </nav>
 
     <div class="container">
-        <!-- 1. HOME TAB -->
+        <!-- 1. HOME TAB (Hero + Intro Card) -->
         <div id="home" class="tab-content active">
+            <!-- Hero -->
             <section class="hero">
                 <div class="status-pill">
                     <span class="status-dot"></span>
@@ -557,17 +575,44 @@
                     <button onclick="showTab('contact')" class="btn btn-outline">👋 Let's Connect</button>
                 </div>
             </section>
+
+            <!-- Home Intro Section -->
+            <div class="card" style="margin-top: 1rem; border-color: rgba(56, 189, 248, 0.25);">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem;">
+                    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; color: var(--text);">
+                        ⚡ Quick Introduction
+                    </h2>
+                    <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">Welcome to my website</span>
+                </div>
+                
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem;">
+                    I am a passionate student and technology builder focused on computer science, web technologies, and digital media solutions. I love exploring new programming concepts, building user-friendly digital tools, and solving complex problems with creative and practical tech solutions.
+                </p>
+
+                <!-- Core Highlights -->
+                <div class="highlight-tags">
+                    <span class="highlight-tag">🎓 Science & Technology Student</span>
+                    <span class="highlight-tag">💻 Web & Front-End Design</span>
+                    <span class="highlight-tag">🛠️ Digital Workflows & Tools</span>
+                    <span class="highlight-tag">🚀 Problem Solver</span>
+                </div>
+
+                <div class="btn-group" style="justify-content: flex-start;">
+                    <button onclick="showTab('about')" class="btn btn-primary">Read Full Bio →</button>
+                    <button onclick="showTab('skills')" class="btn btn-outline">View Skills</button>
+                </div>
+            </div>
         </div>
 
         <!-- 2. ABOUT TAB -->
         <div id="about" class="tab-content">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">A brief overview of who I am and what drives my passion for technology.</p>
+                <p class="section-subtitle">A detailed overview of who I am, my interests, and my goals in tech.</p>
             </div>
             <div class="card">
                 <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem;">
-                    I am an enthusiastic technology student and developer with a passion for software development, digital solutions, and creative problem solving. I love turning innovative ideas into clean, functional, and user-friendly digital experiences.
+                    I am an enthusiastic technology student and developer with a deep interest in software engineering, digital media, and computer science. My journey involves continuous learning, exploring algorithms, crafting responsive web experiences, and optimizing digital solutions.
                 </p>
                 <div class="btn-group" style="justify-content: flex-start;">
                     <button onclick="showTab('skills')" class="btn btn-primary">View My Skills →</button>
@@ -586,12 +631,12 @@
                 <div class="card">
                     <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Higher Secondary</span>
                     <h3 style="margin: 0.5rem 0 0.3rem;">D.A.V. College</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">National Examination Board • Science Stream</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">National Examination Board</p>
                 </div>
                 <div class="card">
                     <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Undergraduate Studies</span>
                     <h3 style="margin: 0.5rem 0 0.3rem;">Computer Science & Technology</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Focusing on software, algorithms & web systems</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Focusing on software systems, web engineering & algorithms</p>
                 </div>
             </div>
         </div>
@@ -610,7 +655,7 @@
                         <span class="skill-tag">CSS3 / Flexbox</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Responsive Design</span>
-                        
+                        <span class="skill-tag">GitHub Pages</span>
                     </div>
                 </div>
                 <div class="card">
@@ -618,7 +663,7 @@
                     <div class="skill-tags">
                         <span class="skill-tag">Git & GitHub</span>
                         <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">AI Tools</span>
+                        <span class="skill-tag">AI Workflows</span>
                         <span class="skill-tag">Web Deployment</span>
                     </div>
                 </div>
@@ -643,12 +688,12 @@
             <div class="grid-2">
                 <div class="card project-card">
                     <h3>Personal Portfolio Website</h3>
-                    <p>An animated, modern, responsive website built from scratch and hosted live on GitHub Pages with zero overhead.</p>
+                    <p>An animated, single-page view portfolio built with clean modern styling and hosted 100% free with GitHub Pages.</p>
                     <div class="skill-tags">
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">JavaScript</span>
-                       
+                        <span class="skill-tag">GitHub Pages</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/krishnakumar-hq/krishnakumar-hq.github.io" target="_blank">View on GitHub →</a>
@@ -656,7 +701,7 @@
                 </div>
                 <div class="card project-card">
                     <h3>Digital Services & Tech Solutions</h3>
-                    <p>Providing technology workflows, digital setup, and online solutions for academic and professional applications.</p>
+                    <p>Streamlining online technical workflows, digital administrative setups, and web tools.</p>
                     <div class="skill-tags">
                         <span class="skill-tag">Digital Workflows</span>
                         <span class="skill-tag">Tech Consulting</span>
@@ -687,7 +732,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Krishna Kumar. Powered by GitHub Pages.</p>
+        <p>© 2026 Krishna Kumar</p>
     </footer>
 
     <!-- Interactive Tab & Animation Scripts -->
