@@ -120,6 +120,9 @@
             color: var(--text);
             text-decoration: none;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .logo span {
@@ -128,6 +131,14 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .nav-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        }
         .nav-links {
             display: flex;
             gap: 0.5rem;
@@ -733,9 +744,12 @@
     </div>
 
     <!-- Navigation Bar -->
+   <!-- Navigation Bar -->
     <nav>
-        <img src="profile.jpeg" alt="Krishna Kumar" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8; box-shadow: 0 0 25px rgba(56, 189, 248, 0.35); margin-bottom: 1.5rem;">
-        <div class="logo" onclick="showTab('home')">Krishna<span>  Kumar</span></div>
+        <div class="logo" onclick="showTab('home')">
+            <img src="YOUR_IMAGE_FILENAME" alt="Krishna Kumar" class="nav-avatar">
+            <span>Krishna <span>Kumar</span></span>
+        </div>
         <div class="nav-links">
             <button class="nav-tab active" data-tab="home" onclick="showTab('home')">Home</button>
             <button class="nav-tab" data-tab="about" onclick="showTab('about')">About</button>
